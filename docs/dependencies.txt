@@ -1,0 +1,10 @@
+# `pip` for pip-installable libraries. `dir` otherwise
+# example line:
+pip matplotlib
+pip numpy
+
+#another example:
+dir results
+dir sulotions_img
+
+# I didn't add the python sub-packages in here because I don't see the need for it

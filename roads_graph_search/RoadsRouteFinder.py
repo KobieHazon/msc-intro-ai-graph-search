@@ -2,11 +2,11 @@
 abstract class for finding routes between two points in Roads class, implementations will use a specific algorithm
 """
 
-from abc import abstractmethod, ABC
-from typing import Optional, List
+from abc import ABC, abstractmethod
+from typing import List, Optional
 
 from helper_types import Node
-from roads_graph_search.RoadsSearchProblem import RoadsSearchProblemFactory, RoadsSearchProblem
+from roads_graph_search.RoadsSearchProblem import RoadsSearchProblem, RoadsSearchProblemFactory
 
 
 class RoadsRouteFinder(ABC):
@@ -15,7 +15,9 @@ class RoadsRouteFinder(ABC):
         self.roads_map = self.search_problem_factory.roads_map
 
     def find_route(self, source_index: int, target_index: int) -> Optional[List[Node]]:
-        search_problem = self.search_problem_factory.make_roads_search_problem(source_index, target_index)
+        search_problem = self.search_problem_factory.make_roads_search_problem(
+            source_index, target_index
+        )
         return self._inner_find(search_problem)
 
     @abstractmethod

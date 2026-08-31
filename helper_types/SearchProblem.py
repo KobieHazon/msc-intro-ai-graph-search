@@ -3,7 +3,7 @@ Class for general search problem representation
 """
 
 from abc import ABCMeta, abstractmethod
-from typing import TypeVar, Generic, Iterable
+from typing import Generic, Iterable, TypeVar
 
 SearchProblemState = TypeVar("SearchProblemState")
 SearchProblemAction = TypeVar("SearchProblemAction")

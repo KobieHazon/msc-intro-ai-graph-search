@@ -1,15 +1,21 @@
-import math
-from typing import Callable, Optional, Tuple
-
-from helper_types.SearchProblem import SearchProblem
 """
 Algorithm implementation for IDAStar
 """
+
+import math
+from typing import Callable, Optional, Tuple
+
 from helper_types import Node
+from helper_types.SearchProblem import SearchProblem
 
 
-def dfs_contour(curr_node: Node, problem: SearchProblem, f: Callable[[Node], int], f_limit: int,
-                is_tree_search: int) -> Tuple[Optional[Node], int]:
+def dfs_contour(
+    curr_node: Node,
+    problem: SearchProblem,
+    f: Callable[[Node], int],
+    f_limit: int,
+    is_tree_search: int,
+) -> Tuple[Optional[Node], int]:
     if f(curr_node) > f_limit:
         return None, f(curr_node)
     if problem.is_goal(curr_node.state):
@@ -28,7 +34,9 @@ def dfs_contour(curr_node: Node, problem: SearchProblem, f: Callable[[Node], int
     return None, next_f
 
 
-def idastar_graph_search(problem: SearchProblem, f: Callable[[Node], int], is_tree_search: int) -> Optional[Node]:
+def idastar_graph_search(
+    problem: SearchProblem, f: Callable[[Node], int], is_tree_search: int
+) -> Optional[Node]:
     start_node = Node(problem.s_start.index)
     f_limit = f(start_node)
     while f_limit != math.inf:

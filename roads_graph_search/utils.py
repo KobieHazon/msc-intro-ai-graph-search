@@ -19,7 +19,9 @@ def compute_path_time(node: Node) -> int:
     sum_time = 0
     for node in node_path[1:]:
         connecting_link = node.action
-        sum_time += connecting_link.distance / (SPEED_RANGES[connecting_link.highway_type][1] * 1000)
+        sum_time += connecting_link.distance / (
+            SPEED_RANGES[connecting_link.highway_type][1] * 1000
+        )
     return sum_time
 
 

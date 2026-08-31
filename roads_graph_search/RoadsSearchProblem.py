@@ -1,11 +1,12 @@
 """
 Class implementation of SearchProblem Roads data structure (representing map with roads and highways)
 """
+
 from typing import Iterable
 
 from helper_types.SearchProblem import SearchProblem
 from utils import SingletonMeta
-from ways.graph import Link, Roads, load_map_from_csv, Junction
+from ways.graph import Junction, Link, Roads, load_map_from_csv
 
 
 class RoadsSearchProblem(SearchProblem[Junction, Link]):  # State is the junction id
@@ -35,7 +36,9 @@ class RoadsSearchProblemFactory(metaclass=SingletonMeta):
     def __init__(self, roads_map_path: str):
         self.roads_map = load_map_from_csv(roads_map_path)
 
-    def make_roads_search_problem(self, source_junction_id: int, goal_junction_id: int) -> RoadsSearchProblem:
+    def make_roads_search_problem(
+        self, source_junction_id: int, goal_junction_id: int
+    ) -> RoadsSearchProblem:
         start_junction = self.roads_map[source_junction_id]
         goal_junction = self.roads_map[goal_junction_id]
         return RoadsSearchProblem(self.roads_map, start_junction, goal_junction)

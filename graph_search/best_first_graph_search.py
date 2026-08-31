@@ -1,10 +1,10 @@
 """
 Algorithm implementation for BestFirstGraphSearch
 """
+
 from typing import Callable, Optional
 
-from helper_types import Node
-from helper_types import PriorityQueue
+from helper_types import Node, PriorityQueue
 from helper_types.SearchProblem import SearchProblem
 
 

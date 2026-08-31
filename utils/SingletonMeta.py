@@ -1,6 +1,7 @@
 """
 metaclass for converting class to a singleton (only single instance in run).
 """
+
 from threading import Lock
 
 
@@ -8,6 +9,7 @@ class SingletonMeta(type):
     """
     This is a thread-safe implementation of Singleton.
     """
+
     _instances = {}
 
     _lock: Lock = Lock()

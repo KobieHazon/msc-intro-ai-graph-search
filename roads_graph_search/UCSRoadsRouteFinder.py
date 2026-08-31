@@ -1,10 +1,12 @@
 """
 Class implementation of RoadsRouteFinder for the UCS algorithm
 """
-from typing import Optional, List
+
+from typing import List, Optional
 
 from graph_search import best_first_graph_search
 from helper_types import Node
+
 from .RoadsRouteFinder import RoadsRouteFinder
 from .RoadsSearchProblem import RoadsSearchProblem
 from .utils import compute_path_time

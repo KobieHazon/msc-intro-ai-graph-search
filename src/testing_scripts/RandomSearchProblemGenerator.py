@@ -6,6 +6,7 @@ import random
 from typing import Callable, List, NamedTuple, Set, Tuple, Union
 
 from main import find_astar_route, find_idastar_route, find_ucs_rout
+from project_paths import RUN_RESULTS_DIR
 from utils.misc import exit_after
 
 SearchQuery = Tuple[int, int]
@@ -61,10 +62,15 @@ class RandomSearchProblemGenerator(NamedTuple):
         return None
 
 
-def export_search_problems(problems: Set[SearchQuery], output_file_path: str = "./problems.csv"):
+def export_search_problems(
+    problems: Set[SearchQuery], output_file_path: str = str(RUN_RESULTS_DIR / "problems.csv")
+):
     """
     Exports the search problem to a csv file with the requested format.
     """
+    from pathlib import Path
+
+    Path(output_file_path).parent.mkdir(parents=True, exist_ok=True)
     with open(output_file_path, "w") as export_file:
         export_file.write("\n".join(f"{problem[0]}, {problem[1]}" for problem in problems))
 

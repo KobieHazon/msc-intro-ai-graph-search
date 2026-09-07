@@ -27,9 +27,9 @@ uv sync --dev
 Each command accepts source and destination junction identifiers:
 
 ```bash
-uv run python main.py ucs 0 100
-uv run python main.py astar 0 100
-uv run python main.py idastar 0 100
+uv run python src/main.py ucs 0 100
+uv run python src/main.py astar 0 100
+uv run python src/main.py idastar 0 100
 ```
 
 The full map takes several seconds to load. IDA* in the assignment's required tree-search mode can take substantially longer on difficult routes.
@@ -42,4 +42,15 @@ uv run pytest
 
 ## Repository Provenance
 
-The `ways` package, map data, and original framework README were supplied for the exercise. `helper_types/Node.py`, `helper_types/PriorityQueue.py`, and `utils/misc.py` identify themselves in the recovered source as originating from the course repository. The graph-search implementations, road-specific adapters, experiment scripts, analysis outputs, and `report.pdf` are the submitted work. The report retains the author's name while removing submission identifiers and contact information.
+The `src/ways` package, map data, and original framework README were supplied for the exercise. `src/helper_types/Node.py`, `src/helper_types/PriorityQueue.py`, and `src/utils/misc.py` identify themselves in the recovered source as originating from the course repository. The graph-search implementations, road-specific adapters, experiment scripts, analysis outputs, and `docs/report.pdf` are the submitted work. The report retains the author's name while removing submission identifiers and contact information.
+
+## Repository layout
+
+- `src/`: algorithms, road adapters, supplied `ways` framework, and experiment modules; existing import names are retained.
+- `data/`: the unchanged supplied road map and recovered problem set.
+- `docs/`: provenance documentation and my report.
+- `results/`: preserved historical run outputs and `route-plots/` images.
+- `tests/`: fast deterministic regression checks.
+- `run-results/`: ignored output from new experiments, separate from recovered evidence.
+
+Run the documented commands from the repository root. Search data is located relative to the source, not the current directory. Experiment modules can be invoked with `PYTHONPATH=src uv run python -m testing_scripts.run_roads_path_search_problems ucs`; their default input is `data/problems.csv`. The random-problem generator writes `run-results/problems.csv` without overwriting the supplied set. The experiment functions also accept explicit input/output paths.

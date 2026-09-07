@@ -54,9 +54,9 @@ if __name__ == "__main__":
     # just run the following one-by-one in the terminal:
     """
     # uses the ucs algorithm to determine connectivity, maximal runtime 15*100 seconds
-    python3 testing_scripts/RandomSearchProblemGenerator.py ucs
-    python3 testing_scripts/run_roads_path_search_problems.py ucs  # exports UCSRuns.txt, runtime a few minutes
-    python3 testing_scripts/run_roads_path_search_problems.py astar  # exports AStarRuns.txt, runtime a few minutes
+    PYTHONPATH=src uv run python -m testing_scripts.RandomSearchProblemGenerator ucs
+    PYTHONPATH=src uv run python -m testing_scripts.run_roads_path_search_problems ucs  # exports UCSRuns.txt, runtime a few minutes
+    PYTHONPATH=src uv run python -m testing_scripts.run_roads_path_search_problems astar  # exports AStarRuns.txt, runtime a few minutes
     # TODO: explain the time for the line below
-    python3 testing_scripts/draw_map.py  # exports the content of the directory sulotions_img
+    PYTHONPATH=src uv run python -m testing_scripts.draw_map  # exports the content of the directory run-results/route-plots
     """

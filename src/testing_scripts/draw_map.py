@@ -6,6 +6,7 @@ import os
 import random
 from typing import Dict, List, Optional
 
+from project_paths import PROBLEMS_FILE, RUN_RESULTS_DIR
 from roads_graph_search import IDAStarRoadsRouteFinder, RoadsRouteFinder
 from testing_scripts.run_roads_path_search_problems import read_search_problems_file
 from utils import exit_after
@@ -19,7 +20,7 @@ except ImportError as exc:
         "Please install matplotlib:  http://matplotlib.org/users/installing.html#windows"
     ) from exc
 
-DEFAULT_GRAPH_EXPORT_DIR = "./sulotions_img"
+DEFAULT_GRAPH_EXPORT_DIR = str(RUN_RESULTS_DIR / "route-plots")
 ROUTE_FINDER_CLASS = IDAStarRoadsRouteFinder
 
 
@@ -40,7 +41,7 @@ def find_route_timeout(
 
 
 def get_random_problem_paths(
-    route_finder: RoadsRouteFinder, count: int = 10, problems_input_file: str = "./problems.csv"
+    route_finder: RoadsRouteFinder, count: int = 10, problems_input_file: str = str(PROBLEMS_FILE)
 ) -> Dict[int, List[int]]:
     """
     returns random search problems from an input file.
@@ -71,7 +72,7 @@ def export_paths_images(
     uses ways.draw.plot_path to plot the path in graph and then export to files as requested in the question.
     """
     if not os.path.exists(export_dir):
-        os.mkdir(export_dir)
+        os.makedirs(export_dir, exist_ok=True)
     for problem_index, path in problem_index_to_path.items():
         plot_path(roads_map, path, color="g")
         plt.savefig(os.path.join(export_dir, f"{problem_index}.png"))

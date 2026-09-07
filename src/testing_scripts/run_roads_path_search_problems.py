@@ -9,6 +9,7 @@ import os.path
 from typing import Generator, List
 
 from helper_types.Node import path_str
+from project_paths import PROBLEMS_FILE, RUN_RESULTS_DIR
 from roads_graph_search.AStarRoadsRouteFinder import AStarRoadsRouteFinder
 from roads_graph_search.IDAStarRoadsRouteFinder import IDAStarRoadsRouteFinder
 from roads_graph_search.RoadsRouteFinder import RoadsRouteFinder
@@ -18,7 +19,7 @@ from testing_scripts.RandomSearchProblemGenerator import SearchQuery
 
 
 def read_search_problems_file(
-    problems_file_path: str = "./problems.csv", problem_count: int = math.inf
+    problems_file_path: str = str(PROBLEMS_FILE), problem_count: int = math.inf
 ) -> Generator[SearchQuery, None, None]:
     """
     Generator for reading the problems file in the project.
@@ -33,14 +34,14 @@ def read_search_problems_file(
             yield int(source_index_str), int(target_index_str)
 
 
-DEFAULT_RESULTS_FOLDER = "./results"
+DEFAULT_RESULTS_FOLDER = str(RUN_RESULTS_DIR)
 
 
 def run_path_search_problems_file(
     route_finder: RoadsRouteFinder,
     export_row_format: str,
     export_file_path: str,
-    problems_file_path: str = "./problems.csv",
+    problems_file_path: str = str(PROBLEMS_FILE),
 ):
     """
     runs the search problem algorith on the problems file and exports results to file with analytics provided.

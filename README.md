@@ -42,7 +42,7 @@ uv run pytest
 
 ## Repository Provenance
 
-The `src/ways` package, map data, and original framework README were supplied for the exercise. `src/helper_types/Node.py`, `src/helper_types/PriorityQueue.py`, and `src/utils/misc.py` identify themselves in the recovered source as originating from the course repository. The graph-search implementations, road-specific adapters, experiment scripts, analysis outputs, and `docs/report.pdf` are the submitted work. The report retains the author's name while removing submission identifiers and contact information.
+The `src/ways` package, map data, and original framework README were supplied for the exercise. `src/helper_types/Node.py`, `src/helper_types/PriorityQueue.py`, and `src/utils/misc.py` identify themselves in the recovered source as originating from the course repository. The graph-search implementations, road-specific adapters, experiment scripts, analysis outputs, and `docs/report.pdf` are the submitted work.
 
 ## Repository layout
 

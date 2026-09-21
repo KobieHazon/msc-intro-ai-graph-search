@@ -2,6 +2,8 @@
 
 A CS MSc Introduction to Artificial Intelligence exercise implementing uniform-cost search, A*, and iterative-deepening A* over a supplied road graph. The project includes route-finding adapters, heuristic and path-cost calculations, experiment scripts, recorded runs, and rendered route examples.
 
+The `src/ways` package, map data, and original framework README were supplied for the exercise. `src/helper_types/Node.py`, `src/helper_types/PriorityQueue.py`, and `src/utils/misc.py` identify themselves in the recovered source as originating from the course repository. The graph-search implementations, road-specific adapters, experiment scripts, analysis outputs, and `docs/report.pdf` are the submitted work.
+
 ## Algorithms
 
 - Uniform-cost graph search ordered by accumulated travel time
@@ -40,15 +42,11 @@ Run the focused algorithm tests with:
 uv run pytest
 ```
 
-## Repository Provenance
-
-The `src/ways` package, map data, and original framework README were supplied for the exercise. `src/helper_types/Node.py`, `src/helper_types/PriorityQueue.py`, and `src/utils/misc.py` identify themselves in the recovered source as originating from the course repository. The graph-search implementations, road-specific adapters, experiment scripts, analysis outputs, and `docs/report.pdf` are the submitted work.
-
 ## Repository layout
 
 - `src/`: algorithms, road adapters, supplied `ways` framework, and experiment modules; existing import names are retained.
 - `data/`: the unchanged supplied road map and recovered problem set.
-- `docs/`: provenance documentation and my report.
+- `docs/`: background notes and my report.
 - `results/`: preserved historical run outputs and `route-plots/` images.
 - `tests/`: fast deterministic regression checks.
 - `run-results/`: ignored output from new experiments, separate from recovered evidence.

@@ -2,7 +2,7 @@
 
 A CS MSc Introduction to Artificial Intelligence exercise implementing uniform-cost search, A*, and iterative-deepening A* over a supplied road graph. The project includes route-finding adapters, heuristic and path-cost calculations, experiment scripts, recorded runs, and rendered route examples.
 
-The `src/ways` package, map data, and original framework README were supplied for the exercise. `src/helper_types/Node.py`, `src/helper_types/PriorityQueue.py`, and `src/utils/misc.py` identify themselves in the recovered source as originating from the course repository. The graph-search implementations, road-specific adapters, experiment scripts, analysis outputs, and `docs/report.pdf` are the submitted work.
+The `src/ways` package, map data, and original framework README were supplied for the exercise. `src/helper_types/Node.py`, `src/helper_types/PriorityQueue.py`, and `src/utils/misc.py` identify themselves in the source as originating from the course repository. The graph-search implementations, road-specific adapters, experiment scripts, analysis outputs, and `docs/report.pdf` are the submitted work.
 
 ## Algorithms
 
@@ -45,10 +45,9 @@ uv run pytest
 ## Repository layout
 
 - `src/`: algorithms, road adapters, supplied `ways` framework, and experiment modules; existing import names are retained.
-- `data/`: the unchanged supplied road map and recovered problem set.
+- `data/`: the unchanged supplied road map and problem set.
 - `docs/`: background notes and my report.
 - `results/`: preserved historical run outputs and `route-plots/` images.
 - `tests/`: fast deterministic regression checks.
-- `run-results/`: ignored output from new experiments, separate from recovered evidence.
 
 Run the documented commands from the repository root. Search data is located relative to the source, not the current directory. Experiment modules can be invoked with `PYTHONPATH=src uv run python -m testing_scripts.run_roads_path_search_problems ucs`; their default input is `data/problems.csv`. The random-problem generator writes `run-results/problems.csv` without overwriting the supplied set. The experiment functions also accept explicit input/output paths.
